@@ -1,0 +1,23 @@
+{
+  "name": "react.nodejs",
+  "version": "0.1.0",
+  "description": "",
+  "main": "",
+  "author": "Rafael Pegorari <rpegorari@ciandt.com>",
+  "scripts": {},
+  "private": true,
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {},
+  "standard": {
+    "ignore": [
+      "client/public/",
+      "client/node_modules/",
+      "server/node_modules/"
+    ]
+  },
+  "engines": {
+    "node": ">=7.4.0",
+    "npm": ">=4.0.5"
+  }
+}
