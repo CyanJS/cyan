@@ -17,8 +17,9 @@ export function loadUser (force = false) {
     .then(data => data.json())
     .then(data => dispatch(succeed(data)))
     .catch(error => {
+      Cookie.removeToken()
       dispatch(failed(error))
-      dispatch(unauthenticated)
+      dispatch(unauthenticated())
     })
   }
 }
