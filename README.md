@@ -1,4 +1,4 @@
-# JiraSync
+# NodejsReact
 
 ## Run project
 **Server**
@@ -30,7 +30,7 @@ It is recommended to develop with Sublime Text with the plugins:
 
 ### Clone Project
 ```
-$ git clone https://bitbucket.org/ciandt_it/jirasync.git
+$ git clone https://bitbucket.org/ciandt_it/nodejsreact.git
 ```
 
 ### Create "Environment" files
@@ -50,9 +50,9 @@ Set configuration in file "server/.env.js". Example.
     'connect': {
       'host': 'ds143191.mlab.com',
       'port': '28191',
-      'user': 'jirasync-userdb',
+      'user': 'userdb',
       'password': 'password',
-      'base': 'jirasync'
+      'base': 'nodejsreact'
     }
   },
   ...
