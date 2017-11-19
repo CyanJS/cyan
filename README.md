@@ -1,4 +1,4 @@
-# NodejsReact
+# Cyan
 
 ## Run project
 **Server**
@@ -21,16 +21,11 @@ $ cd client/ && yarn start
 $ yarn test
 ```
 
-It is recommended to develop with Sublime Text with the plugins:
-* [SublimeLinter](http://www.sublimelinter.com/en/latest/installation.html)
-* [SublimeLinter-contrib-standard](https://packagecontrol.io/packages/SublimeLinter-contrib-standard)
-
-
 ## Install Project
 
 ### Clone Project
 ```
-$ git clone https://bitbucket.org/ciandt_it/nodejsreact.git
+$ git clone https://github.com/CyanJS/cyan.git
 ```
 
 ### Create "Environment" files
@@ -48,11 +43,11 @@ Set configuration in file "server/.env.js". Example.
   ...
   'mongoose': {
     'connect': {
-      'host': 'ds143191.mlab.com',
-      'port': '28191',
+      'host': '*****.mlab.com',
+      'port': '*****',
       'user': 'userdb',
       'password': 'password',
-      'base': 'nodejsreact'
+      'base': '*****'
     }
   },
   ...
