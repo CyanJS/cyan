@@ -1,0 +1,25 @@
+.footer {
+  display: block;
+  width: 100%;
+  border-top: 1px solid #f3f3f3;
+
+  p {
+    float: left;
+    padding: 14px 16px;
+    font-size: 16px;
+    margin: 0;
+
+    a {
+      color: #26C6DA;
+      text-decoration: none;
+
+      &:hover {
+        color: #00ACC1;
+      }
+    }
+
+    &.right {
+      float: right;
+    }
+  }
+}

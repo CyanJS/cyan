@@ -1,32 +1,30 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
+import queryString from 'query-string'
 import { authenticated } from '../../actions/Auth/Types'
 import Cookie from '../../Cookie'
 import { bindActionCreators } from 'redux'
 import config from '../../../.env.js'
+import { Redirect } from 'react-router-dom'
 
 const ROUTER_LOGGED = config.router.logged
 
 class Token extends Component {
   componentWillMount () {
-    const token = this.props.location.query.token
-    let { authenticated } = this.props
+    let { authenticated, location } = this.props
+    const params = queryString.parse(location.search)
 
-    Cookie.setToken(token)
+    Cookie.setToken(params.token)
     authenticated()
-    this.context.router.push(ROUTER_LOGGED)
   }
 
   render () {
     return (
-      <div>Loading</div>
+      <Redirect to={{
+        pathname: ROUTER_LOGGED
+      }} />
     )
   }
-}
-
-Token.contextTypes = {
-  router: PropTypes.object
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(

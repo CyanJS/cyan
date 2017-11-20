@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { loadUser } from '../../actions/User'
 
+import './style.scss'
+
 class Dashboard extends Component {
   componentWillMount () {
     const { loadUser } = this.props
@@ -18,15 +20,11 @@ class Dashboard extends Component {
     })()
 
     return (
-      <section className='section'>
-        <div className='container'>
-          <div className='jumbotron'>
-            <h2>
-              Welcome {userData.username} !!!
-            </h2>
-            <p>Email: {userData.email}</p>
-          </div>
-        </div>
+      <section className='section-dashboard'>
+        <h2>
+          Welcome {userData.username} !!!
+        </h2>
+        <p>Email: {userData.email}</p>
       </section>
     )
   }

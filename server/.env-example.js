@@ -25,7 +25,7 @@ module.exports = {
       'id': '########.apps.googleusercontent.com',
       'secret': 'secretKey',
       'callback': app.domain.server + '/auth/google/callback',
-      'redirectFront': app.domain.client + '/login/auth/?token=%s'
+      'redirectFront': app.domain.client + '/login/callback/?token=%s'
     },
     'jwt': {
       'secret': 'secretKey'

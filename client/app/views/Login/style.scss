@@ -1,0 +1,17 @@
+.section-login {
+  width: 300px;
+  background-color: #f3f3f3;
+  padding: 8px 22px;
+  border-radius: 2px;
+  margin: 30px auto;
+  text-align: center;
+
+  a {
+    color: #26C6DA;
+    text-decoration: none;
+
+    &:hover {
+      color: #00ACC1;
+    }
+  }
+}

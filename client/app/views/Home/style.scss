@@ -1,0 +1,27 @@
+.section-home {
+  background-color: #f3f3f3;
+  padding: 8px 22px;
+  border-radius: 2px;
+  margin: 30px auto;
+
+  ul {
+    list-style-type: circle;
+    padding-left: 40px;
+
+    li {
+      float: none;
+    }
+  }
+
+  .left {
+    float: left;
+  }
+
+  .clearfix {
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.navbar {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f3f3f3;
+  }
+
+  li {
+    float: left;
+
+    &.right {
+      float: right;
+    }
+
+    .text {
+      display: block;
+      color: #666;
+      padding: 14px 16px;
+      font-size: 16px;
+    }
+
+    a {
+      display: block;
+      color: #666;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 16px;
+
+      &:hover:not(.active) {
+        background-color: #E0E0E0;
+      }
+
+      &.active {
+        color: white;
+        background-color: #26C6DA;
+      }
+    }
+  }
+}

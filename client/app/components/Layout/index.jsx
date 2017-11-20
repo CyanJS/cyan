@@ -6,15 +6,17 @@ import './style.scss'
 
 class Layout extends Component {
   render () {
+    const { children } = this.props
+
     return (
-      <div>
-        <header>
+      <div className='flex-container'>
+        <header className='flex-header'>
           <Navbar />
         </header>
-        <main>
-          { this.props.children }
+        <main className='flex-main'>
+          { children }
         </main>
-        <footer>
+        <footer className='flex-footer'>
           <Footer />
         </footer>
       </div>

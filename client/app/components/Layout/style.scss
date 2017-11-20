@@ -1,0 +1,31 @@
+
+@import '~normalize.css';
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: stretch;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.flex-header {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+}
+
+.flex-main {
+  order: 0;
+  flex: 0 1 100%;
+  align-self: stretch;
+  margin: 14px 16px;
+}
+
+.flex-footer {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: stretch;
+}

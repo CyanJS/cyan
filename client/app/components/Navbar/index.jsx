@@ -1,29 +1,36 @@
 import React, { Component } from 'react'
-import { Navbar, Nav } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { logout } from '../../actions/Auth'
-import { Link } from 'react-router'
-import { NavbarDropdown } from './NavbarDropdown'
+import { withRouter, NavLink } from 'react-router-dom'
 
-class NavbarTest extends Component {
+import { logout } from '../../actions/Auth'
+
+import './style.scss'
+
+class Navbar extends Component {
   render () {
     const { auth, logout, user } = this.props
 
+    const buttonRight = auth.authenticated
+      ? (<a onClick={logout}>Logout</a>)
+      : (<NavLink exact to='/login' activeClassName='active'>Login</NavLink>)
+
+    const username = auth.authenticated
+      ? (<li className='right'><span className='text'>Hi {user.payload.username}</span></li>)
+      : ''
+
+    const dashboard = auth.authenticated
+      ? (<li><NavLink exact to='/dashboard' activeClassName='active'>Dashboard</NavLink></li>)
+      : ''
+
     return (
-      <div>
-        <Navbar>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <Link to='/'>
-                  NodejsReact
-                </Link>
-            </Navbar.Brand>
-          </Navbar.Header>
-          <Nav pullRight>
-            <NavbarDropdown auth={auth.authenticated} logout={logout} user={user} />
-          </Nav>
-        </Navbar>
+      <div className='navbar'>
+        <ul>
+          <li><NavLink exact to='/' activeClassName='active'>Cyan</NavLink></li>
+          {dashboard}
+          <li className='right'>{buttonRight}</li>
+          {username}
+        </ul>
       </div>
     )
   }
@@ -36,7 +43,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(
 
 const mapStateToProps = ({ auth, user }) => ({ auth, user })
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(NavbarTest)
+)(Navbar))

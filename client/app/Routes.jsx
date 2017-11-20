@@ -1,25 +1,33 @@
 import React from 'react'
-import { browserHistory, IndexRoute, Router, Route } from 'react-router'
+import createBrowserHistory from 'history/createBrowserHistory'
+import { Router, Route, Switch } from 'react-router-dom'
 
-import Authentication from './components/Auth/Authentication'
-import Token from './components/Auth/Token'
+import AuthenticatedRoute from './components/Auth/AuthenticatedRoute'
+import UnauthenticatedRoute from './components/Auth/UnauthenticatedRoute'
 
-import Layout from './views/Layout'
+import Layout from './components/Layout'
 import NotFound from './views/NotFound'
 
 import Home from './views/Home'
 import Login from './views/Login'
+import LoginCallback from './views/LoginCallback'
 import Dashboard from './views/Dashboard'
 
 const Routes = () => (
-  <Router history={browserHistory}>
-    <Route path='/' component={Layout}>
-      <IndexRoute component={Home} />
-      <Route path='login' component={Login} />
-      <Route path='login/auth' component={Token} />
-      <Route path='dashboard' component={Authentication(Dashboard)} />
-      <Route path='*' component={NotFound} />
-    </Route>
+  <Router history={createBrowserHistory()}>
+    <Route path='/'
+      render={props => (
+        <Layout {...props}>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <UnauthenticatedRoute exact path='/login' component={Login} />
+            <UnauthenticatedRoute exact path='/login/callback' component={LoginCallback} />
+            <AuthenticatedRoute exact path='/dashboard' component={Dashboard} />
+            <Route component={NotFound} />
+          </Switch>
+        </Layout>
+      )}
+    />
   </Router>
 )
 
