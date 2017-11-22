@@ -11,25 +11,34 @@ class Navbar extends Component {
   render () {
     const { auth, logout, user } = this.props
 
-    const buttonRight = auth.authenticated
+    const buttonLoginOut = auth.authenticated
       ? (<a onClick={logout}>Logout</a>)
       : (<NavLink exact to='/login' activeClassName='active'>Login</NavLink>)
 
-    const username = auth.authenticated
-      ? (<li className='right'><span className='text'>Hi {user.payload.username}</span></li>)
+    const menuLoggedRight = auth.authenticated
+      ? (
+          <ul className='right'>
+            <li><span className='text'>Hi {user.payload.username}</span></li>
+          </ul>
+        )
       : ''
 
-    const dashboard = auth.authenticated
-      ? (<li><NavLink exact to='/dashboard' activeClassName='active'>Dashboard</NavLink></li>)
+    const menuLoggedLeft = auth.authenticated
+      ? (
+          <ul>
+            <li><NavLink exact to='/dashboard' activeClassName='active'>Dashboard</NavLink></li>
+            <li><NavLink exact to='/profile' activeClassName='active'>Profile</NavLink></li>
+          </ul>
+        )
       : ''
 
     return (
       <div className='navbar'>
         <ul>
           <li><NavLink exact to='/' activeClassName='active'>Cyan</NavLink></li>
-          {dashboard}
-          <li className='right'>{buttonRight}</li>
-          {username}
+          {menuLoggedLeft}
+          <li className='right'>{buttonLoginOut}</li>
+          {menuLoggedRight}
         </ul>
       </div>
     )

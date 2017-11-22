@@ -13,6 +13,8 @@ import Login from './views/Login'
 import LoginCallback from './views/LoginCallback'
 import Dashboard from './views/Dashboard'
 
+import Profile from './views/Profile'
+
 const Routes = () => (
   <Router history={createBrowserHistory()}>
     <Route path='/'
@@ -23,6 +25,7 @@ const Routes = () => (
             <UnauthenticatedRoute exact path='/login' component={Login} />
             <UnauthenticatedRoute exact path='/login/callback' component={LoginCallback} />
             <AuthenticatedRoute exact path='/dashboard' component={Dashboard} />
+            <AuthenticatedRoute exact path='/profile' component={Profile} />
             <Route component={NotFound} />
           </Switch>
         </Layout>

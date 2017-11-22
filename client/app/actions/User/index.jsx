@@ -23,3 +23,24 @@ export function loadUser (force = false) {
     })
   }
 }
+
+export function updateUser (payload) {
+  return (dispatch) => {
+    dispatch(request())
+    window.fetch(URL_USER, {
+      headers: { 
+        'Authorization': Cookie.getToken(),
+        'Content-Type' : 'application/json'
+      },
+      method: 'PUT',
+      body: JSON.stringify(payload)
+    })
+    .then(data => data.json())
+    .then(data => dispatch(succeed(data)))
+    .catch(error => {
+      Cookie.removeToken()
+      dispatch(failed(error))
+      dispatch(unauthenticated())
+    })
+  }
+}
