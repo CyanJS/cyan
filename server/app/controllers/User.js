@@ -13,6 +13,7 @@ module.exports = Core => {
         if (!user) throw new Error('User not found !')
 
         user.username = body.username
+        user.age = body.age
         
         return user.save()
       })

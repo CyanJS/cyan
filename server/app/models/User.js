@@ -16,6 +16,10 @@ module.exports = Core => {
         trim: true,
         required: [true, 'Username is required']
       },
+      age: {
+        type: String,
+        trim: true
+      },
       email: {
         type: String,
         trim: true,
